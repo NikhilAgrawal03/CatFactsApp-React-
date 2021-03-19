@@ -19,7 +19,11 @@ const FormFact = () => {
   const Fact = useSelector((state) => state.Fact);
   const { factData } = Fact;
 
-  console.log(factData);
+  if (factData) {
+    factData.map((item) => {
+      console.log(item.text);
+    });
+  }
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -59,8 +63,8 @@ const FormFact = () => {
           {factData ? (
             factData.map((item) => (
               <Card className="my-3 p-3 rounded" border="light" key={item.text}>
-                <Card.Body >
-                  <Card.Title as="div" >
+                <Card.Body>
+                  <Card.Title as="div">
                     <strong>{item.type}</strong>
                   </Card.Title>
                   <Card.Text as="h3">{item.text}</Card.Text>

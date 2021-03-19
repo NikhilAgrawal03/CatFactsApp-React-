@@ -15,7 +15,7 @@ const factDataFromStorage = localStorage.getItem("factData")
   : [];
 
 const initialState = {
-  factData: { factData: factDataFromStorage },
+  Item: { factData: factDataFromStorage },
 };
 
 const middleware = [thunk];
