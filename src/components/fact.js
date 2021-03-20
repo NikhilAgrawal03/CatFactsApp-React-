@@ -31,47 +31,58 @@ const FormFact = () => {
   return (
     <div>
       <Row>
-        <Col sm={6}>
-          <FormContainer>
-            <h1>Set Facts you went to see</h1>
+        <Col lg={5} sm={12}>
+          <div
+            className="card p-2 mb-4"
+            style={{ backgroundColor: "lightblue" }}
+          >
+            <FormContainer>
+              <h1 className="mt-1">Set Facts you went to see</h1>
 
-            <Form onSubmit={submitHandler}>
-              <Form.Group>
-                <Form.Label>Animal</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={animal}
-                  as="select"
-                  onChange={(e) => setAnimal(e.target.value)}
-                >
-                  <option>cat</option>
-                  <option>dog</option>
-                  <option>horse</option>
-                  <option>snail</option>
-                </Form.Control>
-              </Form.Group>
+              <Form onSubmit={submitHandler}>
+                <Form.Group>
+                  <Form.Label>Animal</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={animal}
+                    as="select"
+                    onChange={(e) => setAnimal(e.target.value)}
+                  >
+                    <option>cat</option>
+                    <option>dog</option>
+                    <option>horse</option>
+                    <option>snail</option>
+                  </Form.Control>
+                </Form.Group>
 
-              <Form.Group>
-                <Form.Label>Number of Facts</Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="Enter No of fats you want to see"
-                  value={numfacts}
-                  onChange={(e) => setNumfacts(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
-              <Button type="submit" variant="primary">
-                Submit
-              </Button>
-            </Form>
-          </FormContainer>
+                <Form.Group>
+                  <Form.Label>Number of Facts</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Enter No of fats you want to see"
+                    value={numfacts}
+                    onChange={(e) => setNumfacts(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
+                <Button type="submit" variant="primary">
+                  Submit
+                </Button>
+              </Form>
+            </FormContainer>
+          </div>
         </Col>
-        <Col sm={6}>
-          <div>
+        <hr />
+        <Col lg={7} sm={12}>
+          <div className="p-2" id="factContainer">
             <Row>
               {item.map((d) => (
                 <Col md={6}>
-                  <div className="card justify-content-center p-3" key={d._id}>
+                  <div
+                    id="fact-card"
+                    className="card justify-content-center p-5 mb-1"
+                    style={{ backgroundColor: "#ff6666" }}
+                    key={d._id}
+                  >
                     {d.type === "cat" ? (
                       <h2>{d.type}😺</h2>
                     ) : d.type === "dog" ? (
